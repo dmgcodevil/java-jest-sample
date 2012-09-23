@@ -4,7 +4,7 @@ This example illustrates basic search features of SearchBox.io ([ElasticSearch](
 
 Sample application is using [Jest](https://github.com/searchbox-io/Jest) Java ElasticSearch client to integrate with SearchBox.io.
 
-To create initial index and sample data click "Create Articles" (2 sample documents will be created.)
+To create initial index and sample data click "Create Articles" (2 sample articles will be created.)
 
 To test search; enter "epic", "Drizzt" or "*" to search box at top right and hit enter.
 

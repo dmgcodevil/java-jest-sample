@@ -17,7 +17,7 @@
                 <ul class="nav">
                     <li><a href='<spring:url value="/" htmlEscape="true"/>'>Home</a></li>
                     <li><a href='<spring:url value="/about" htmlEscape="true"/>'>About</a></li>
-                    <li><a href='<spring:url value="/search/create" htmlEscape="true"/>'>Create Documents</a></li>
+                    <li><a href='<spring:url value="/search/create" htmlEscape="true"/>'>Create Articles</a></li>
                 </ul>
                 <ul class="nav pull-right">
                     <li class="divider-vertical"></li>
