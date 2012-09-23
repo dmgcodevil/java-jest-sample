@@ -1,4 +1,4 @@
-## SearchBox.io Sample Clojure Application.
+## SearchBox.io Sample Java Application.
 
 This example illustrates basic search features of SearchBox.io ([ElasticSearch](http://www.elasticsearch.org) as service).
 
