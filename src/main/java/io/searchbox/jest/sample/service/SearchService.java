@@ -65,7 +65,6 @@ public class SearchService {
             bulk.addIndex(new Index.Builder(article1).build());
             bulk.addIndex(new Index.Builder(article2).build());
 
-
             elasticSearchClient.execute(bulk);
         } catch (IOException e) {
             e.printStackTrace();
