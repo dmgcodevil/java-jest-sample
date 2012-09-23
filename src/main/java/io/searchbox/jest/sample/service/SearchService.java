@@ -82,7 +82,7 @@ public class SearchService {
             search.addIndex("articles");
             search.addType("article");
 
-            ElasticSearchResult result = elasticSearcghClient.execute(search);
+            ElasticSearchResult result = elasticSearchClient.execute(search);
             return result.getSourceAsObjectList(Article.class);
 
         } catch (IOException e) {
