@@ -18,7 +18,7 @@
                 This example illustrates basic search features of SearchBox.io (ElasticSearch as
                 service).</p>
 
-            <p>Click "ç" on top menu, 2 sample documents will be created. </p>
+            <p>Click "Create Articles" on top menu, 2 sample documents will be created. </p>
 
             <p>To test search; enter "epic", "Drizzt" or "*" to search box at top right and hit enter. </p>
 
