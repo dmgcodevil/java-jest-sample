@@ -1,7 +1,7 @@
 package io.searchbox.jest.sample.configuration;
 
-import io.searchbox.client.ElasticSearchClient;
-import io.searchbox.client.ElasticSearchClientFactory;
+import io.searchbox.client.JestClient;
+import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.config.ClientConfig;
 import io.searchbox.client.config.ClientConstants;
 import org.apache.commons.lang.StringUtils;
@@ -29,8 +29,8 @@ public class SpringConfiguration {
     }
 
     public @Bean
-    ElasticSearchClient elasticSearchClient(){
-        ElasticSearchClientFactory factory = new ElasticSearchClientFactory();
+    JestClient jestClient(){
+        JestClientFactory factory = new JestClientFactory();
         factory.setClientConfig(clientConfig());
         return factory.getObject();
     }

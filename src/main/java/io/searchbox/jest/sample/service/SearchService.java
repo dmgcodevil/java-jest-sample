@@ -1,7 +1,7 @@
 package io.searchbox.jest.sample.service;
 
-import io.searchbox.client.ElasticSearchClient;
-import io.searchbox.client.ElasticSearchResult;
+import io.searchbox.client.JestClient;
+import io.searchbox.client.SearchResult;
 import io.searchbox.core.Bulk;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
@@ -23,7 +23,7 @@ import java.util.List;
 public class SearchService {
 
     @Autowired
-    ElasticSearchClient elasticSearchClient;
+    JestClient jestClient;
 
 
     public void indexSampleArticles() {
@@ -46,11 +46,11 @@ public class SearchService {
         try {
             // Delete articles index if it is exists
             DeleteIndex deleteIndex = new DeleteIndex("articles");
-            elasticSearchClient.execute(deleteIndex);
+            jestClient.execute(deleteIndex);
 
             // Create articles index
             CreateIndex createIndex = new CreateIndex("articles");
-            elasticSearchClient.execute(createIndex);
+            jestClient.execute(createIndex);
 
             /**
              *  if you don't want to use bulk api use below code in a loop.
@@ -65,7 +65,7 @@ public class SearchService {
             bulk.addIndex(new Index.Builder(article1).build());
             bulk.addIndex(new Index.Builder(article2).build());
 
-            elasticSearchClient.execute(bulk);
+            jestClient.execute(bulk);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -81,7 +81,7 @@ public class SearchService {
             search.addIndex("articles");
             search.addType("article");
 
-            ElasticSearchResult result = elasticSearchClient.execute(search);
+            SearchResult result = jestClient.execute(search);
             return result.getSourceAsObjectList(Article.class);
 
         } catch (IOException e) {
