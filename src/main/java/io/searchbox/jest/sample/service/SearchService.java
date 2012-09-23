@@ -1,7 +1,7 @@
 package io.searchbox.jest.sample.service;
 
 import io.searchbox.client.JestClient;
-import io.searchbox.client.SearchResult;
+import io.searchbox.client.JestResult;
 import io.searchbox.core.Bulk;
 import io.searchbox.core.Index;
 import io.searchbox.core.Search;
@@ -81,7 +81,7 @@ public class SearchService {
             search.addIndex("articles");
             search.addType("article");
 
-            SearchResult result = jestClient.execute(search);
+            JestResult result = jestClient.execute(search);
             return result.getSourceAsObjectList(Article.class);
 
         } catch (IOException e) {
