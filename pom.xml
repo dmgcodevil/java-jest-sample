@@ -11,17 +11,25 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>3.1.2.RELEASE</spring.version>
         <slf4j.version>1.5.10</slf4j.version>
-        <slf4j-log4j12.version>1.2</slf4j-log4j12.version>
+        <slf4j-log4j12.version>1.6.1</slf4j-log4j12.version>
         <java.version>1.6</java.version>
         <junit.version>4.8.2</junit.version>
         <org.aspectj-version>1.6.9</org.aspectj-version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>sonatype</id>
+            <name>Sonatype Groups</name>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+    </repositories>
     <dependencies>
 
         <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>0.0.1</version>
         </dependency>
 
         <!-- Spring Dependencies -->
@@ -85,30 +93,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- logging -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
-            <exclusions>
-                <!--
-                These packages are not in the Maven repository
-                If you do this certain log4j appenders will not be available
-                -->
-                <exclusion>
-                    <groupId>javax.jms</groupId>
-                    <artifactId>jms</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jdmk</groupId>
-                    <artifactId>jmxtools</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jmx</groupId>
-                    <artifactId>jmxri</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -122,9 +106,9 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
-        	<groupId>org.slf4j</groupId>
-        	<artifactId>slf4j-log4j12</artifactId>
-        	<version>${slf4j-log4j12.version}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j-log4j12.version}</version>
         </dependency>
     </dependencies>
 
@@ -148,7 +132,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>copy</goal></goals>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
