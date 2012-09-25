@@ -55,12 +55,11 @@ public class SearchService {
             /**
              *  if you don't want to use bulk api use below code in a loop.
              *
-             *  Index index = new Index.Builder(article2).build();
+             *  Index index = new Index.Builder(new Object()).index("articles").type("article").build();
              *  elasticSearchClient.execute(index);
              *
              */
 
-            // Bulk operations does not uses default indices yet, we pass them while constructing bulk!
             Bulk bulk = new Bulk("articles", "article");
             bulk.addIndex(new Index.Builder(article1).build());
             bulk.addIndex(new Index.Builder(article2).build());
