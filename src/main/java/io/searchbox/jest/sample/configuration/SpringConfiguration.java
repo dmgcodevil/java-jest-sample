@@ -23,8 +23,6 @@ public class SpringConfiguration {
         servers.add(StringUtils.isNotBlank(System.getenv("SEARCHBOX_URL")) ? System.getenv("SEARCHBOX_URL") : "http://localhost:9200");
         clientConfig.getServerProperties().put(ClientConstants.SERVER_LIST,servers);
         clientConfig.getClientFeatures().put(ClientConstants.IS_MULTI_THREADED,false);
-        clientConfig.getClientFeatures().put(ClientConstants.DEFAULT_INDEX,"articles");
-        clientConfig.getClientFeatures().put(ClientConstants.DEFAULT_TYPE,"article");
         return clientConfig;
     }
 
