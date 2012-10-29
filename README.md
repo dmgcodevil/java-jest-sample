@@ -35,7 +35,7 @@ This sample can be deployed to CloudBees with ease.
 
 * Change value of "connectionUrl" with your connection url at SpringConfiguration.java
 
-* Execute below maven deploy command;
+* Execute below maven deploy command with your app-id;
 
 ```
     mvn bees:deploy -Dbees.appid=YOUR-APP-ID
