@@ -16,18 +16,25 @@ import java.util.LinkedHashSet;
 @Configuration
 public class SpringConfiguration {
 
-    public @Bean
-    ClientConfig clientConfig(){
+    public
+    @Bean
+    ClientConfig clientConfig() {
+        String connectionUrl = StringUtils.isNotBlank(System.getenv("SEARCHBOX_URL")) ?
+                System.getenv("SEARCHBOX_URL") : "http://api.searchbox.io/replace-me-with-your-api-key";
+
+        // String connectionUrl = "http://localhost:9200"
+
         ClientConfig clientConfig = new ClientConfig();
         LinkedHashSet<String> servers = new LinkedHashSet<String>();
-        servers.add(StringUtils.isNotBlank(System.getenv("SEARCHBOX_URL")) ? System.getenv("SEARCHBOX_URL") : "http://localhost:9200");
-        clientConfig.getServerProperties().put(ClientConstants.SERVER_LIST,servers);
-        clientConfig.getClientFeatures().put(ClientConstants.IS_MULTI_THREADED,false);
+        servers.add(connectionUrl);
+        clientConfig.getServerProperties().put(ClientConstants.SERVER_LIST, servers);
+        clientConfig.getClientFeatures().put(ClientConstants.IS_MULTI_THREADED, false);
         return clientConfig;
     }
 
-    public @Bean
-    JestClient jestClient(){
+    public
+    @Bean
+    JestClient jestClient() {
         JestClientFactory factory = new JestClientFactory();
         factory.setClientConfig(clientConfig());
         return factory.getObject();
