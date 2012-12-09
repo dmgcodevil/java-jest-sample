@@ -29,7 +29,13 @@
         <dependency>
             <groupId>io.searchbox</groupId>
             <artifactId>jest</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
+        </dependency>
+        <!-- ES dependency for query builder -->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>0.19.11</version>
         </dependency>
 
         <!-- Spring Dependencies -->

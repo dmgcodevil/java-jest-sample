@@ -67,6 +67,8 @@ public class SearchService {
             jestClient.execute(bulk);
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
@@ -76,7 +78,7 @@ public class SearchService {
         try {
             QueryBuilder queryBuilder = QueryBuilders.queryString(param);
 
-            Search search = new Search(queryBuilder);
+            Search search = new Search(Search.createQueryWithBuilder(queryBuilder.toString()));
             search.addIndex("articles");
             search.addType("article");
 
@@ -84,6 +86,8 @@ public class SearchService {
             return result.getSourceAsObjectList(Article.class);
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
